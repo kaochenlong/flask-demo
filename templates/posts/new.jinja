@@ -1,0 +1,12 @@
+{% extends "layouts/normal.jinja" %}
+
+{% block content %}
+  <h1>新增文章</h1>
+  <form method="POST" action="/posts">
+    <label>標題</label>
+    <input type="text" name="ccc" />
+
+
+    <button>送出</button>
+  </form>
+{% endblock %}

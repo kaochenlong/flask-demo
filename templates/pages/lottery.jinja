@@ -1,0 +1,10 @@
+{% extends "layouts/normal.jinja" %}
+
+{% block content %}
+  <h1>號碼</h1>
+
+  {% for n in numbers %}
+    <div>{{ n }}</div>
+  {% endfor %}
+{% endblock %}
+
