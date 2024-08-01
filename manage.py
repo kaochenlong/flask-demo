@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect
+from config.setting import db
+from flask_migrate import Migrate
 
 kitty = Flask(__name__)
+kitty.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///kitty.db"
+
+db.init_app(kitty)
+Migrate(kitty, db)
 
 
 @kitty.route("/")
@@ -24,6 +30,7 @@ def lottery():
 def posts():
     if request.method == "POST":
         # 寫入資料庫
+        # ORM
         return redirect("/posts")
 
     return render_template("posts/index.jinja")
