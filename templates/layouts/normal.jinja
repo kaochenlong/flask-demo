@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Flask{% endblock %}</title>
-    <script defer src="/static/scripts/alpine.js"></script>
-  </head>
-  <body>
-    {% include 'shared/navbar.jinja' %}
-    {% block content %}{% endblock %}
-  </body>
-</html>
+{% extends "layouts/base.jinja" %}
+
+{% block body %}
+  {% block content %}{% endblock %}
+{% endblock %}

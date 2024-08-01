@@ -2,11 +2,21 @@
 
 {% block content %}
   <h1>新增文章</h1>
-  <form method="POST" action="/posts">
-    <label>標題</label>
-    <input type="text" name="ccc" />
+  <form x-data="{title: ''}" method="POST" action="/posts">
+    <section class="flex flex-col gap-4">
+      <div>
+        <label class="block text-sm">標題</label>
+        <input x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black px-2 py-1" name="title" />
+      </div>
 
+      <div>
+        <label class="block text-sm">內文</label>
+        <textarea name="content" rows="8" class="w-full border border-black px-2 py-1" placeholder="文章內文"></textarea>
+      </div>
 
-    <button>送出</button>
+      <div>
+        <button :disabled="title == ''" class="disabled:bg-gray-300 bg-yellow-400 p-2 hover:bg-yellow-300">新增文章</button>
+      </div>
+    </section>
   </form>
 {% endblock %}
