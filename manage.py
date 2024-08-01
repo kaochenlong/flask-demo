@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from config.setting import db
 from flask_migrate import Migrate
+import models
 
 kitty = Flask(__name__)
 kitty.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///kitty.db"
