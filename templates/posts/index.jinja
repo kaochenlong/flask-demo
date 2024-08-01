@@ -1,13 +1,16 @@
 {% extends "layouts/normal.jinja" %}
 
 {% block content %}
-  <h1>文章列表</h1>
-  <a href="/posts/new">新增文章</a>
+  <h1 class="text-3xl my-2">文章列表</h1>
+  <a href="/posts/new" class="rounded bg-yellow-400 my-2 px-3 py-2">新增文章</a>
 
-  <ul class="flex flex-col gap-2">
+  <ul class="grid grid-cols-1 sm:grid-cols-4 my-3 gap-2">
   {% for post in posts %}
-    <li class="px-2 py-1 border border-gray-500 hover:bg-gray-300">
-      {{ post.title }}
+    <li class="px-4 py-2 border border-gray-300">
+      <h3 class="text-lg font-bold">{{ post.title }}</h3>
+      <article>
+        內文...待寫
+      </article>
     </li>
   {% endfor %}
   </ul>
