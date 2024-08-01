@@ -3,4 +3,12 @@
 {% block content %}
   <h1>文章列表</h1>
   <a href="/posts/new">新增文章</a>
+
+  <ul class="flex flex-col gap-2">
+  {% for post in posts %}
+    <li class="px-2 py-1 border border-gray-500 hover:bg-gray-300">
+      {{ post.title }}
+    </li>
+  {% endfor %}
+  </ul>
 {% endblock %}
