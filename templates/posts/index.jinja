@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1 class="text-3xl my-2">文章列表</h1>
-  <a href="/posts/new" class="rounded bg-yellow-400 my-2 px-3 py-2">新增文章</a>
+  <a href="{{ url_for('post.new') }}" class="rounded bg-yellow-400 my-2 px-3 py-2">新增文章</a>
 
   <ul class="grid grid-cols-1 sm:grid-cols-4 my-3 gap-2">
   {% for post in posts %}
