@@ -2,8 +2,14 @@
 
 {% block content %}
   <h1 class="text-3xl my-2">{{ post.title }}</h1>
-  <a href="{{ url_for('post.edit', id=post.id) }}" class="bg-yellow-400 px-4 py-2 rounded text-lg">編輯</a>
-  <a href="" class="bg-red-400 px-4 py-2 rounded text-lg">刪除</a>
+
+  <section class="flex gap-2">
+    <a href="{{ url_for('post.edit', id=post.id) }}" class="bg-yellow-400 px-4 py-2 rounded text-lg">編輯</a>
+
+    <form method="POST" action="{{ url_for('post.delete', id=post.id) }}">
+      <button class="bg-red-400 px-4 py-2 rounded text-lg">刪除</button>
+    </form>
+  </section>
 
   <article class="my-2">
     {{ post.content|replace('\n', '<br />') }}

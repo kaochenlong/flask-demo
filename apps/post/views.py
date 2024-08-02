@@ -51,3 +51,13 @@ def update(id):
     flash('更新文章成功')
 
     return redirect(url_for('post.show', id=post.id))
+
+@post_bp.route('/posts/<int:id>/delete', methods=["POST"])
+def delete(id):
+    post = Post.query.get_or_404(id)
+
+    db.session.delete(post)
+    db.session.commit()
+
+    flash('已成功刪除')
+    return redirect(url_for('post.index'))
