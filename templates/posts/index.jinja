@@ -8,7 +8,7 @@
   {% for post in posts %}
     <li class="px-4 py-2 border border-gray-300">
       <h3 class="text-lg font-bold">
-        <a href="{{ url_for('show', id=post.id) }}">{{ post.title }}</a>
+        <a href="{{ url_for('post.show', id=post.id) }}">{{ post.title }}</a>
       </h3>
       <article>
         {{ post.content|striptags|truncate(50) }}
