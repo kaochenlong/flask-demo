@@ -2,16 +2,17 @@
 
 {% block content %}
   <h1>新增文章</h1>
-  <form x-data="{title: ''}" method="POST" action="/posts">
+  <form method="POST" action="/posts">
+    {{ form.csrf_token }}
     <section class="flex flex-col gap-4">
       <div>
-        <label class="block text-sm mb-1">標題</label>
-        <input x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black text-lg px-2 py-1" name="title" />
+        {{ form.title.label }}
+        {{ form.title }}
       </div>
 
       <div>
-        <label class="block text-sm mb-1">內文</label>
-        <textarea name="content" rows="8" class="w-full border border-black px-2 py-1 text-lg" placeholder="文章內文"></textarea>
+        {{ form.content.label }}
+        {{ form.content }}
       </div>
 
       <div>

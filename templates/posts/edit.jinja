@@ -2,11 +2,11 @@
 
 {% block content %}
   <h1>更新文章</h1>
-  <form x-data="{title: ''}" x-init="title = $refs.title.dataset.title" method="POST" action="{{ url_for('post.update', id=post.id) }}">
+  <form  x-init="title = $refs.title.dataset.title" method="POST" action="{{ url_for('post.update', id=post.id) }}">
     <section class="flex flex-col gap-4">
       <div>
         <label class="block text-sm mb-1">標題</label>
-        <input x-ref="title" data-title="{{ post.title }}" x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black text-lg px-2 py-1" name="title" />
+        <input x-ref="title" data-title="{{ post.title }}" x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black text-lg px-2 py-1" name="title" value="{{ post.title }}" />
       </div>
 
       <div>
