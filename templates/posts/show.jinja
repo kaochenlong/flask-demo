@@ -1,0 +1,8 @@
+{% extends "layouts/normal.jinja" %}
+
+{% block content %}
+  <h1 class="text-3xl my-2">{{ post.title }}</h1>
+  <article>
+    {{ post.content|replace('\n', '<br />') }}
+  </article>
+{% endblock %}

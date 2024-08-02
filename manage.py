@@ -1,17 +1,18 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from config.setting import db
 from flask_migrate import Migrate
 from models import Post
 
 kitty = Flask(__name__)
 kitty.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///kitty.db"
+kitty.config["SECRET_KEY"] = '3120312093812031209'
 
 db.init_app(kitty)
 Migrate(kitty, db)
 
 
 @kitty.route("/")
-def hello_world():
+def home():
     return render_template("pages/index.jinja", hello=123)
 
 
@@ -30,7 +31,6 @@ def lottery():
 @kitty.route("/posts", methods=["GET", "POST"])
 def posts():
     if request.method == "POST":
-        # 寫入資料庫
         title = request.form.get('title')
         content = request.form.get('content')
 
@@ -38,11 +38,18 @@ def posts():
         db.session.add(post)
         db.session.commit()
 
+        flash("新增成功")
+
         return redirect("/posts")
 
-    posts = Post.query.all()
+    posts = Post.query.order_by(-Post.id)
     return render_template("posts/index.jinja", posts=posts)
 
+
+@kitty.route("/posts/<int:id>")
+def show(id):
+    post = Post.query.get_or_404(id)
+    return render_template("posts/show.jinja", post=post)
 
 @kitty.route("/posts/new")
 def new_posts():

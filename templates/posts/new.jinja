@@ -5,13 +5,13 @@
   <form x-data="{title: ''}" method="POST" action="/posts">
     <section class="flex flex-col gap-4">
       <div>
-        <label class="block text-sm">標題</label>
-        <input x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black px-2 py-1" name="title" />
+        <label class="block text-sm mb-1">標題</label>
+        <input x-model="title" type="text" placeholder="請輸入文章標題" class="w-full border border-black text-lg px-2 py-1" name="title" />
       </div>
 
       <div>
-        <label class="block text-sm">內文</label>
-        <textarea name="content" rows="8" class="w-full border border-black px-2 py-1" placeholder="文章內文"></textarea>
+        <label class="block text-sm mb-1">內文</label>
+        <textarea name="content" rows="8" class="w-full border border-black px-2 py-1 text-lg" placeholder="文章內文"></textarea>
       </div>
 
       <div>

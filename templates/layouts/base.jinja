@@ -9,6 +9,22 @@
   </head>
   <body>
     {% include 'shared/navbar.jinja' %}
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <section x-data x-ref="flash" class="items-center flex justify-between text-lg bg-yellow-400 px-6 py-2">
+          <p>
+          {% for message in messages %}
+             {{ message }}
+          {% endfor %}
+          </p>
+          <button @click="$refs.flash.remove()" class="bg-yellow-200 p-0.5 w-10 rounded">
+            X
+          </button>
+        </section>
+      {% endif %}
+    {% endwith %}
+
     <main class="my-4 mx-4 sm:mx-12">
       {% block body %}{% endblock %}
     </main>
